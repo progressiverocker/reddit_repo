@@ -68,5 +68,5 @@ def prompt_for_weight():
 restart = "y" 
 while restart == "y":
     premeds = prompt_for_weight()
-    print premeds
+    premeds
     restart = raw_input("\nTO RESTART ENTER 'Y'.")
