@@ -45,7 +45,6 @@ def prompt_for_weight(species_stripped):
         if (weight_re.match(weight) != None) and (float(weight) > 0.0) and (float(weight) < weight_max[species_stripped]):
             weight_float = float(weight) 
             return weight_float
-            break
         
         else:
             print("\n\tOops! Please try again.")
