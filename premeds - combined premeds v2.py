@@ -69,7 +69,6 @@ def calculate_premeds(species_stripped, weight_float):
 restart = "y" 
 while restart == "y":
     species_stripped = prompt_for_species()
-    weight_float
-    = prompt_for_weight(species_stripped)
+    weight_float = prompt_for_weight(species_stripped)
     calculate_premeds(species_stripped, weight_float)
     restart = raw_input("\nTO RESTART ENTER 'Y'.")
