@@ -12,34 +12,27 @@ def request_cypher():
         user_request = raw_input("\nEnter your string: ")
         if user_request.strip() != "":
             # convert string into list
-            list_of_request = []
-            for letters in user_request.strip():
-                list_of_request.append(letters.lower())
-            return list_of_request        
+            request = list(user_request.strip().lower())
+            return request         
         else:
             print ("\n\tOops! Please try again.")
 
 
-def generate_cypher(list_of_request):
-    list_of_ascii = []
-    
-    for letters in string.ascii_lowercase:
-        list_of_ascii.append(letters)
-        
+def generate_cypher(request):
+    ascii = list(string.ascii_lowercase)
     cypher_range = randrange(1,26)
-    list_of_ascii_sliced = list_of_ascii[:cypher_range]
-    list_of_ascii_cypher = list_of_ascii[cypher_range:]
+    ascii_sliced = ascii[:cypher_range]
+    ascii_cypher = ascii[cypher_range:]
     
-    for letters in list_of_ascii_sliced:
-        list_of_ascii_cypher.append(letters)
+    for letters in ascii_sliced:
+        ascii_cypher.append(letters)
 
-    for request_index, letter_request in enumerate(list_of_request):
-        for ascii_letter in list_of_ascii:
+    for request_index, letter_request in enumerate(request):
+        for ascii_letter in ascii:
             if letter_request == ascii_letter:
-                list_of_request[request_index] = list_of_ascii_cypher[list_of_ascii.index(ascii_letter)]
-
-    print cypher_range    
-    print "\nHere is your cypher: ", ''.join(list_of_request)
+                request[request_index] = ascii_cypher[ascii.index(ascii_letter)]
+    
+    print "\nHere is your cypher: ", ''.join(request)
 
 
 restart = 'y'
