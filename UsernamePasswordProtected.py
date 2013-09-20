@@ -26,9 +26,9 @@ password = raw_input()
 
 with open(r"Output.txt", "r") as login:
     if username and password in login.read().split():
-        print 'Login Successful!'
+        raw_input('Login Successful!')
     else:
-        print 'Please Try Again!'
+        raw_input('Please Try Again!')
     
         
 
