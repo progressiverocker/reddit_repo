@@ -15,7 +15,6 @@ def login():
     
     with open(r"Output.txt", "w") as login:
         data = login.write("username %s\npassword %s" % (username, password))
-   
 
 # force input for username and password
 # matches input from user with stored username and password in output.txt
@@ -49,7 +48,7 @@ def prompt():
             print "\n\tOops! Please try again"
 
 
-#login()
+login()
 prompt()
 
 raw_input("\nLoading your program ...<Press Enter>")
