@@ -24,10 +24,12 @@ def prompt():
     while True:
         search = open(r"Output.txt")
         username = [line for line in search if "username" in line]
+        username = username[0].replace("username", '').strip()
         enter_username = raw_input("\nEnter your username: ").strip()
         
         search = open(r"Output.txt")
         password = [line for line in search if "password" in line]
+        password = password[0].replace("password", '').strip()
         enter_password = raw_input("Enter your password: ").strip()
 
     
