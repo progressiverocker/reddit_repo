@@ -7,13 +7,14 @@ import string
 import random
 from random import randrange
 import re
+FILENAME = r"output.txt"
 
 # randomly generate a username and password in output.txt
 def login():
-    username = str(''.join(random.choice(string.ascii_lowercase + string.ascii_uppercase + string.digits) for x in range(randrange(6,10))))
-    password = str(''.join(random.choice(string.ascii_lowercase + string.ascii_uppercase + string.digits) for x in range(randrange(6,10))))
+    username = ''.join(random.choice(string.ascii_lowercase + string.ascii_uppercase + string.digits) for x in range(randrange(6,10)))
+    password = ''.join(random.choice(string.ascii_lowercase + string.ascii_uppercase + string.digits) for x in range(randrange(6,10)))
     
-    with open(r"Output.txt", "w") as login:
+    with open(FILENAME, "w") as login:
         data = login.write("username %s\npassword %s" % (username, password))
 
 # force input for username and password
@@ -22,13 +23,13 @@ def login():
 def prompt():
     
     while True:
-        search = open(r"Output.txt")
+        search = open(FILENAME)
         username = [line for line in search if "username" in line]
         username = username[0].replace("username", '').strip()
         regex_username = re.compile(username)
         enter_username = raw_input("\nEnter your username: ").strip()
         
-        search = open(r"Output.txt")
+        search = open(FILENAME)
         password = [line for line in search if "password" in line]
         password = password[0].replace("password", '').strip()
         regex_password = re.compile(password)
@@ -37,7 +38,7 @@ def prompt():
     
         if (enter_username != "") and (enter_password != ""):
             
-            if bool(regex_username.search(enter_username)) and bool(regex_password.search(enter_password)):
+            if regex_username.search(enter_username) and regex_password.search(enter_password):
                 print "\n\tLogin Successful!"
                 break
                 
